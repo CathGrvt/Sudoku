@@ -1,0 +1,8 @@
+.DS_Store*
+.vscode/*
+*checkpoint*
+*__pycache__*
+!*Doxyfile
+docs/html/*
+docs/latex/*
+.idea/*
