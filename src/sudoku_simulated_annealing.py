@@ -110,19 +110,6 @@ def get_bqm(matrix):
     for row, line in enumerate(matrix):
         for col, value in enumerate(line):
             if value > 0:
-                # Each cell can only select one digit.
-                # Hence, for a given cell at row r and column c,
-                # we have 9 labels. Namely,
-                # ["r,c_1", "r,c_2", ..., "r,c_8", "r,c_9"]
-                #
-                # Due to this same constraint, we can only select one of these
-                # 9 labels (achieved by 'generators.combinations(..)').
-                #
-                # The 1 below indicates that we are selecting the label
-                # produced by f"{row},{col}_{value}", fixing known values.
-                # All other labels
-                # with the same 'row' and 'col' will be discouraged from being
-                # selected.
                 bqm.fix_variable(f"{row},{col}_{value}", 1)
 
     return bqm
